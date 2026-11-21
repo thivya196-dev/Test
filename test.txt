@@ -1,0 +1,25 @@
+JavaScript
+const { test, expect } = require('@playwright/test');
+
+test('Add product to cart and complete checkout', async ({ page }) => {
+  // 1. Open the shopping website
+  await page.goto('https://www.saucedemo.com/');
+
+  // 2. Login
+  await page.fill('#user-name', 'standard_user');
+  await page.fill('#password', 'secret_sauce');
+  await page.click('#login-button');
+
+  // 3. Verify products page
+  await expect(page).toHaveURL(/inventory/);
+
+  // 4. Add product to cart
+  await page.click('#add-to-cart-sauce-labs-backpack');
+
+  // 5. Open cart
+  await page.click('.shopping_cart_link');
+
+  // 6. Verify product is in cart
+  await expect(
+    page.locator('.inventory_item_name')
+  ).toHaveText('Sauce Labs Backpack');
