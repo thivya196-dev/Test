@@ -1,0 +1,5 @@
+color-scheme: dark;
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --card-color: #252525;
+  --button-color: #7c83ff;
