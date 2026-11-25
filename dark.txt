@@ -1,0 +1,27 @@
+:root {
+  color-scheme: light;
+  --bg-color: #ffffff;
+  --text-color: #222222;
+  --card-color: #f1f1f1;
+  --button-color: #2563eb;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --card-color: #252525;
+  --button-color: #7c83ff;
+}
+
+/* Automatic system theme */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --card-color: #252525;
+    --button-color: #7c83ff;
+  }
+}
